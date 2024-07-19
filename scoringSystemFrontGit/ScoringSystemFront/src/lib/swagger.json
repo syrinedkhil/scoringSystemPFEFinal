@@ -1,0 +1,1881 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "ScoringSystem",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/Account/SignIn": {
+            "get": {
+                "tags": [
+                    "Account"
+                ],
+                "operationId": "SignIn",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Article/Add": {
+            "post": {
+                "tags": [
+                    "Article"
+                ],
+                "operationId": "AddArticle",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddArticleRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddArticleRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddArticleRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArticleResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArticleResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArticleResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Article/GetById": {
+            "post": {
+                "tags": [
+                    "Article"
+                ],
+                "operationId": "GetArticleById",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetArticleByIdResponse"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetArticleByIdResponse"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetArticleByIdResponse"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArticleResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArticleResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ArticleResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Article/GetAll": {
+            "get": {
+                "tags": [
+                    "Article"
+                ],
+                "operationId": "GetAllArticles",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ArticleResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ArticleResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ArticleResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Article/Delete": {
+            "delete": {
+                "tags": [
+                    "Article"
+                ],
+                "operationId": "DeleteArticleById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/ArticleScore/ScoreArticles": {
+            "post": {
+                "tags": [
+                    "ArticleScoreControllers"
+                ],
+                "operationId": "ScoreArticles",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetNewArticleScoreRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetNewArticleScoreRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetNewArticleScoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleScoreResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleScoreResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleScoreResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Company/Add": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "operationId": "AddCompanies",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddCompanyRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddCompanyRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddCompanyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompanyResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompanyResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompanyResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Company/GetAll": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "operationId": "GetAllCompanies",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CompanyResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CompanyResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CompanyResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Company/DeleteCompany": {
+            "delete": {
+                "tags": [
+                    "Company"
+                ],
+                "operationId": "DeleteCompany",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Feedback/Add": {
+            "post": {
+                "tags": [
+                    "Feedback"
+                ],
+                "operationId": "AddFeedback",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FeedbackRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FeedbackRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FeedbackRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Feedback/GetById": {
+            "post": {
+                "tags": [
+                    "Feedback"
+                ],
+                "operationId": "GetFeedbackById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeedbackResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeedbackResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeedbackResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Feedback/GetAll": {
+            "get": {
+                "tags": [
+                    "Feedback"
+                ],
+                "operationId": "GetAllFeedback",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/FeedbackResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/FeedbackResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/FeedbackResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Feedback/GetAllFeedbackByCompanyName": {
+            "get": {
+                "tags": [
+                    "Feedback"
+                ],
+                "operationId": "GetAllFeedbackByCompanyName",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Feedback/Delete": {
+            "delete": {
+                "tags": [
+                    "Feedback"
+                ],
+                "operationId": "DeleteFeedback",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Label/Add": {
+            "post": {
+                "tags": [
+                    "Label"
+                ],
+                "operationId": "AddLabel",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddLabelRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddLabelRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddLabelRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LabelResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LabelResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LabelResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Label/GetbyId": {
+            "post": {
+                "tags": [
+                    "Label"
+                ],
+                "operationId": "GetLabelbyId",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetLabelByArticleIdRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetLabelByArticleIdRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetLabelByArticleIdRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/LabelResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/LabelResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/LabelResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Label/GetLabelsByArticles": {
+            "get": {
+                "tags": [
+                    "Label"
+                ],
+                "operationId": "GetLabelsByArticles",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/LabelResponse"
+                                        }
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/LabelResponse"
+                                        }
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/LabelResponse"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Label/Edit": {
+            "put": {
+                "tags": [
+                    "Label"
+                ],
+                "operationId": "EditLabel",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateLabelRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateLabelRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateLabelRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LabelResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LabelResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LabelResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Articles/GetTopArticles": {
+            "post": {
+                "tags": [
+                    "NewArticles"
+                ],
+                "operationId": "GetTopArticles",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetTopNewArticlesRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetTopNewArticlesRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetTopNewArticlesRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewArticleResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Articles/AddNewArticle": {
+            "post": {
+                "tags": [
+                    "NewArticles"
+                ],
+                "operationId": "AddNewArticle",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddNewArticleRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddNewArticleRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddNewArticleRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddNewArticleResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddNewArticleResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddNewArticleResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Articles/DeleteNewArticle": {
+            "delete": {
+                "tags": [
+                    "NewArticles"
+                ],
+                "operationId": "DeleteNewArticle",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/NewLabel/Add": {
+            "post": {
+                "tags": [
+                    "NewLabel"
+                ],
+                "operationId": "AddNewLabel",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddNewLabelRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddNewLabelRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddNewLabelRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NewLabelResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NewLabelResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NewLabelResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/NewLabel/GetbyId": {
+            "post": {
+                "tags": [
+                    "NewLabel"
+                ],
+                "operationId": "GetNewLabelById",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetLabelByTopicIdRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetLabelByTopicIdRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetLabelByTopicIdRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewLabelResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewLabelResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/NewLabelResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/NewLabel/Edit": {
+            "put": {
+                "tags": [
+                    "NewLabel"
+                ],
+                "operationId": "EditNewLabel",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateNewLabelRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateNewLabelRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateNewLabelRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NewLabelResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NewLabelResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NewLabelResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Topic/Add": {
+            "post": {
+                "tags": [
+                    "Topic"
+                ],
+                "operationId": "AddTopic",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTopicRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTopicRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTopicRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopicResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopicResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopicResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Topic/Update": {
+            "post": {
+                "tags": [
+                    "Topic"
+                ],
+                "operationId": "UpdateTopic",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateTopicRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateTopicRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateTopicRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/Topic/All": {
+            "get": {
+                "tags": [
+                    "Topic"
+                ],
+                "operationId": "GetAllTopics",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TopicResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TopicResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TopicResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Topic/GetTopicById": {
+            "get": {
+                "tags": [
+                    "Topic"
+                ],
+                "operationId": "GetTopicById",
+                "parameters": [
+                    {
+                        "name": "topicId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopicResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopicResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TopicResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Topic/Delete": {
+            "delete": {
+                "tags": [
+                    "Topic"
+                ],
+                "operationId": "DeleteTopic",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AddArticleRequest": {
+                "type": "object",
+                "properties": {
+                    "articleTexte": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LabelResponse"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddCompanyRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddLabelRequest": {
+                "type": "object",
+                "properties": {
+                    "item": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "score": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "articleId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddNewArticleRequest": {
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "author": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "url": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "content": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddNewArticleResponse": {
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddNewLabelRequest": {
+                "type": "object",
+                "properties": {
+                    "item": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "score": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ArticleResponse": {
+                "required": [
+                    "articleId",
+                    "articleTexte",
+                    "finalScore",
+                    "labels"
+                ],
+                "type": "object",
+                "properties": {
+                    "articleId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "articleTexte": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LabelResponse"
+                        }
+                    },
+                    "finalScore": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CompanyResponse": {
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CreateTopicRequest": {
+                "type": "object",
+                "properties": {
+                    "topicName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NewLabelResponse"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "FeedbackRequest": {
+                "type": "object",
+                "properties": {
+                    "topicId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "articleId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "articleUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "highScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        },
+                        "nullable": true
+                    },
+                    "midScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        },
+                        "nullable": true
+                    },
+                    "lowScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        },
+                        "nullable": true
+                    },
+                    "finalScore": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "rated": {
+                        "type": "boolean"
+                    },
+                    "relatedCompanies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "articleSentiment": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reviewer": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "FeedbackResponse": {
+                "required": [
+                    "articleId",
+                    "articleSentiment",
+                    "createdOn",
+                    "finalScore",
+                    "highScore",
+                    "id",
+                    "lowScore",
+                    "midScore",
+                    "rated",
+                    "reviewer",
+                    "topicId"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "articleId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "articleUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "highScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "midScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "lowScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "finalScore": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "rated": {
+                        "type": "boolean"
+                    },
+                    "relatedCompanies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "articleSentiment": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "createdOn": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "reviewer": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetArticleByIdResponse": {
+                "type": "object",
+                "properties": {
+                    "articleId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetLabelByArticleIdRequest": {
+                "type": "object",
+                "properties": {
+                    "articleId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetLabelByTopicIdRequest": {
+                "type": "object",
+                "properties": {
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetNewArticleScoreRequest": {
+                "type": "object",
+                "properties": {
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetTopNewArticlesRequest": {
+                "type": "object",
+                "properties": {
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LabelResponse": {
+                "type": "object",
+                "properties": {
+                    "labelId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "item": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "score": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "articleId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NewArticleResponse": {
+                "required": [
+                    "author",
+                    "content",
+                    "description",
+                    "source",
+                    "title",
+                    "url"
+                ],
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "author": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "url": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "title": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "content": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NewArticleScoreResponse": {
+                "required": [
+                    "author",
+                    "companies_Ids",
+                    "companies_Scores",
+                    "content",
+                    "description",
+                    "highScore",
+                    "lowScore",
+                    "midScore",
+                    "result",
+                    "source",
+                    "title",
+                    "topicId",
+                    "url"
+                ],
+                "type": "object",
+                "properties": {
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "source": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "author": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "url": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "title": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "content": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "companies_Ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    "companies_Scores": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "highScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "midScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "lowScore": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "result": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "articleSentiment": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sentimentScore": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NewLabelResponse": {
+                "type": "object",
+                "properties": {
+                    "newLabelId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "item": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "score": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TopicResponse": {
+                "type": "object",
+                "properties": {
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "topicName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NewLabelResponse"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UpdateLabelRequest": {
+                "type": "object",
+                "properties": {
+                    "labelId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "item": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "score": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "articleId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UpdateNewLabelRequest": {
+                "type": "object",
+                "properties": {
+                    "newLabelId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "item": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "score": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UpdateTopicRequest": {
+                "type": "object",
+                "properties": {
+                    "topicId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "topicName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NewLabelResponse"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "description": "Okta Authorization header using the Bearer scheme Example: \"Authortization: Bearer <token>\"",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ]
+}

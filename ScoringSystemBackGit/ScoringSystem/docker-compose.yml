@@ -1,0 +1,56 @@
+version: '3.4'
+networks:
+  scoringsystemapp:
+volumes:
+   scoringsystemdb_data:
+services:
+   scoringsystemdb:
+      container_name: app-db
+      image: mcr.microsoft.com/mssql/server:2022-latest
+
+      ports:
+         - 1433:1433
+      environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=yourStrong(!)Password
+        
+      volumes:
+        - scoringsystemdb_data:/var/opt/mssql
+      networks:
+        - scoringsystemapp
+      mem_limit: 4g
+      
+   scoringsystem:
+     container_name: scoring-system-app
+     image: ${DOCKER_REGISTRY-}scoringsystem
+     build:
+       context: .
+       dockerfile: ScoringSystem/Dockerfile
+     ports:
+       - 8001:80
+     depends_on:
+     - scoringsystemdb
+     environment:
+       - DB_USER=sa
+       - DB_HOST=scoringsystemdb
+       - DB_NAME=scoringsystemdatabase
+       - DB_MSSQL_SA_PASSWORD=yourStrong(!)Password
+     networks:
+       - scoringsystemapp
+   fastapiapp:
+     container_name: fastapi-app
+     image: my-fastapi-app
+     ports:
+       - 8002:80
+     networks:
+       - scoringsystemapp
+     environment:
+       - FASTAPI_DB_HOST=scoringsystemdb
+       - FASTAPI_DB_PORT=1433
+       - FASTAPI_DB_USER=sa
+       - FASTAPI_DB_PASSWORD=yourStrong(!)Password
+
+       
+ 
+  
+

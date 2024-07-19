@@ -1,0 +1,6 @@
+@ScoringSystem_HostAddress = http://localhost:5248
+
+GET {{ScoringSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

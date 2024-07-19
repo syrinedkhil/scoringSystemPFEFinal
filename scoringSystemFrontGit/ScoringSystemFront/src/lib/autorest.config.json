@@ -1,0 +1,7 @@
+{
+  "input-file": "swagger.json",
+  "output-folder": "autorest-library-v1",
+  "typescript": true,
+  "azure-sdk-for-js":false 
+}
+  
